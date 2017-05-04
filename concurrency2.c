@@ -1,6 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <pthread.h>
 /******************************************************************************
 * Concurrency Assignment #2
 * CS444
@@ -79,7 +76,7 @@ int identify(char* name){
 		id = 4;
 		return id;
 	}else{
-		printf("IMPROPER THREAD ID")
+		printf("IMPROPER THREAD ID");
 		return id;
 	}
 }
@@ -114,8 +111,9 @@ void putforks(char* IDvar){
 	pthread_mutex_unlock(&forks[secondfork]);
 }
 
-void *philosphize(char* IDvar){
+void *philosphize(void *IDvar){
 	int alive = 1;
+	printf("IDvar %s",IDvar);
 	while(alive){
 		think(IDvar);
 		getforks(IDvar);
@@ -126,27 +124,47 @@ void *philosphize(char* IDvar){
 }
 
 int main(int argc, char **argv){
+		printf("check actual 0");
         if(argc != 1){
                 printf("Incorrect number of arguments");
                 return 1;
         }
         int i,j;
         time_t t=time(0);
+		printf("check 0");
         for(i=0; i<5; i++)
-			pthread_mutex_init(&fork[i], NULL);
-        
+			pthread_mutex_init(&(forks[i]), NULL);
+        printf("check 1");
 		pthread_t philosophers[5];
- 
+		char* name1 = "Aristotle";
+		char* name2 = "Plato";
+		char* name3 = "Socrates";
+		char* name4 = "Decartes";
+		char* name5 = "Confucius";
+		printf("check 2");
         // Create five threads
-        pthread_create(&(philosophers[0]), NULL, philosphize, "Aristotle");
-		pthread_create(&(philosophers[2]), NULL, philosphize, "Plato");
-        pthread_create(&(philosophers[1]), NULL, philosphize, "Socrates");
-	    pthread_create(&(philosophers[3]), NULL, philosphize, "Decartes");
-	    pthread_create(&(philosophers[4]), NULL, philosphize, "Confucius");
-		
+        pthread_create(&(philosophers[0]), NULL, philosphize, (void *) name1);
+		printf("check 3");
+		pthread_create(&(philosophers[2]), NULL, philosphize, (void*) name2);
+		printf("check 4");
+        pthread_create(&(philosophers[1]), NULL, philosphize, (void*) name3);
+		printf("check 5");
+	    pthread_create(&(philosophers[3]), NULL, philosphize, (void*) name4);
+		printf("check 6");
+	    pthread_create(&(philosophers[4]), NULL, philosphize, (void*) name5);
+		printf("check 7");
 		for(j=0; j<5; j++)
 			pthread_join(philosophers[j],NULL);
-        while(1){}
+		printf("check 8");
+		int million = 1;
+		int	count = 0;
+        while(million){
+			printf("check 9");
+			count++;
+			if(count > 10000000){
+				million =0;
+			}
+		}
         return 0;
 }
 
