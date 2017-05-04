@@ -118,7 +118,7 @@ void putforks(char* IDvar){
 void *philosphize(void *IDvar){
 	int alive = 1;
 	int count = 0;
-	printf("IDvar %s \n",IDvar);
+	printf("Hello my name is %s \n",IDvar);
 	while(alive == 1){
 		think(IDvar);
 		getforks(IDvar);
@@ -139,7 +139,7 @@ int main(int argc, char **argv){
         }
         int i,j;
         time_t t=time(0);
-		printf("check 0");
+		//printf("check 0");
         for(i=0; i<5; i++){
 			pthread_mutex_init(&(forks[i]), NULL);
 		}
