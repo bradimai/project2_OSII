@@ -132,7 +132,7 @@ void *philosphize(void *IDvar){
 }
 
 int main(int argc, char **argv){
-		printf("\n  check actual 0");
+		//printf("\n  check actual 0");
         if(argc > 1){
                 printf("Incorrect number of arguments");
                 return 1;
@@ -143,28 +143,28 @@ int main(int argc, char **argv){
         for(i=0; i<5; i++){
 			pthread_mutex_init(&(forks[i]), NULL);
 		}
-        printf("check 1 \n");
+        //printf("check 1 \n");
 		pthread_t philosophers[5];
 		char* name1 = "Aristotle";
 		char* name2 = "Plato";
 		char* name3 = "Socrates";
 		char* name4 = "Decartes";
 		char* name5 = "Confucius";
-		printf("check 2 \n");
+		//printf("check 2 \n");
         // Create five threads
         pthread_create(&(philosophers[0]), NULL, philosphize, (void *) name1);
-		printf("check 3 \n");
+		//printf("check 3 \n");
 		pthread_create(&(philosophers[2]), NULL, philosphize, (void*) name2);
-		printf("check 4 \n");
+		//printf("check 4 \n");
         pthread_create(&(philosophers[1]), NULL, philosphize, (void*) name3);
-		printf("check 5 \n");
+		//printf("check 5 \n");
 	    pthread_create(&(philosophers[3]), NULL, philosphize, (void*) name4);
-		printf("check 6 \n");
+		//printf("check 6 \n");
 	    pthread_create(&(philosophers[4]), NULL, philosphize, (void*) name5);
-		printf("check 7 \n");
+		//printf("check 7 \n");
 		for(j=0; j<5; j++)
 			pthread_join(philosophers[j],NULL);
-		printf("check 8 \n");
+		//printf("check 8 \n");
 		int million = 1;
 		int	count = 0;
         while(million){
