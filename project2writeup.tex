@@ -67,35 +67,13 @@
 
         \vspace{0.5cm}
 
-        abstract text\vfill
+        Schedulers and elevator algorithms are an essentially building block for lower level kernel services. In this assignment we had to implement the correct elevator algorithm. The following elevator algorithm was approached by C-look which was based off of SSTF and NO-OP scheduler. The final results included a scheduler that successfully ordered requests according to C-look.\vfill
 
 
     \end{center}
 \end{titlepage}
 
 \newpage
-
-\section{The design you plan to use to implement the SSTF algorithms}
-
-text
-
-\section{Concurrency Questions}
-
-\textit{What do you think the main point of this assignment is?}\\
-
-text\\
-
-\textit{How did you personally approach the problem? Design decisions, algorithm, etc.}\\
-
-text \\
-
-\textit{How did you ensure your solution was correct? Testing details, for instance.}\\
-
-text\\
-
-\textit{What did you learn?}\\
-
-text\\
 
 \section{Version Control Log Github}
 \begin{tabular}{lll} \textbf{Author}
@@ -110,8 +88,38 @@ Bradimai & 2017-05-3 & made a few changes to dining philosopher file\\ \hline
 Bradimai & 2017-05-3 & took out print statements and cleaned up philosopher file \\ \hline
 RossDan96 & 2017-05-3 &  pushed the final concurrency2 file\\ \hline
 RossDan96 & 2017-05-3 & created a schedule and start project 2 \\ \hline
+Bradimai & 2017-05-4 & updated makefile \\ \hline
+Bradimai & 2017-05-4 & started writing the tex file for the write up \\ \hline
+Bradimai & 2017-05-4 & created the kconfig.iosched \\ \hline
+Bradimai & 2017-05-4 & removed the wrong kconfig.iosched file \\ \hline
+Rossdan96 & 2017-05-5 & uploaded patch file and final files \\ \hline
+
+
 
 \end{tabular}
+
+\section{The design you plan to use to implement the SSTF algorithms}
+
+After doing some research between C-LOOK and LOOK we have decided to use C-LOOK's algorithm to implement the elevator problem. C-LOOK is a circular algorithm meaning that it searches in one direction and once it has reached the top it resets and goes back to the bottom. With the C-LOOK implementation you could either sweep from inside out or outside in which we have decided to go from inside out.
+
+\section{Project Questions}
+
+\textit{What do you think the main point of this assignment is?}\\
+
+We thought the main point of this assignment was to get a better understanding of the Linux I/O schedulers and the two elevator algorithms (C-LOOK and LOOK). Another section of this assignment was to understand and implement lower levels of the Linux kernel. Another main point was to understand the requests. The creation of patch files was also a hurdle.\\
+
+\textit{How did you personally approach the problem? Design decisions, algorithm, etc.}\\
+
+At the start of this assignment we were a little confused on the specifics for this assignment. However, after We did some research on both the LOOK and C-LOOK algorithms and came to a conclusion that we will be implementing the C-LOOK algorithm. We thought it would be simpler to keep our request additions in the same directions relative to the disk.\\
+
+\textit{How did you ensure your solution was correct? Testing details, for instance.}\\
+
+In order to make sure/double check to see if our solution was working correctly, we had to build and run the VM/Kernel with the scheduler implementation multiple times. We would receive building errors so we had to go back into our scheduler file and fix what was needed. It was a quite of a pain to work in VI. After we were able to successfully build the kernel, we added in multiple print statements in order to see what was exactly going on while the scheduler was running. After we had successfully understood what our scheduler was printing out we were able to make the correct changes in order to fulfill the requirements of this assignment2.\\
+
+\textit{What did you learn?}\\
+
+We learned a lot about low level kernel information regarding the creation and setting up default schedulers. At the beginning of our assignment we did a quite of bit of research on the two different elevator algorithms which were LOOK and C-LOOK. Most of all designing this elevator algorithm revealed the nature of disk I/O.\\
+
 
 \section{Work Log}
 
@@ -121,12 +129,19 @@ RossDan96 & 2017-05-3 & created a schedule and start project 2 \\ \hline
 
 \\ \hline
 OWen & 2017-05-2 & started the concurrency2 in recitation  \\ \hline
-Linc & 2017-05-3 & stared implemented the code for the concurrency2 \\ \hline
+Library & 2017-05-3 & stared implemented the code for the concurrency2 \\ \hline
 Linc & 2017-05-3 &  later in the evening finished the concurrency 2\\ \hline
-linc & 2017-05-3 & started reviewing are stated the project2 \\ \hline
+linc & 2017-05-3 & started reviewing are started the project2 \\ \hline
+linc & 2017-05-4 & began the Kernel section of the assignment \\ \hline
+linc & 2017-05-5 & finished up the final touches on the kernel sec \\ \hline
+linc & 2017-05-5 & finished up the latex portion of the assignment \\ \hline
+linc & 2017-05-5 & finally tar.bz2 everything up and submitted on teach \\ \hline
+
+
+
 
 \end{tabular}
 
-My group member and I started our concurrency about a week ago or so. During our recitation we were able to get stated part of the concurrency2 assignment. We met up the following day at Linc to finish the concurrency2 assignment. We started the concurrency 2 solution a while back in one of our recitations so we had a pretty good start on how to implement the code to this problem. We met up in the morning to get a start on it and met up again in the evening to finish the concurrency2 problem. After finishing the concurrency2 assignment we started the project2. We download the appropriate files did some thinking on how we should tackle the problem. We met up again the following day to finish up the project2 part of the assignment.Finally we met up on Friday to finish up the written part of the assignment and a couple small changes to our code.
+We started the concurrency 2 solution a while back in one of our recitations so we had a pretty good start on how to implement the code to this problem. We met up in the morning to get a start on it and met up again in the evening to finish the concurrency2 problem. After finishing the concurrency2 assignment we started the project2. We download the appropriate files, did some thinking on how we should tackle the problem. We met up again the following day to finish up the project2 part of the assignment.Finally we met up on Friday to finish up the written part of the assignment and a couple small changes to our code. Finally tar.bz2 everything up and turned it in.
 
 \end{document}
